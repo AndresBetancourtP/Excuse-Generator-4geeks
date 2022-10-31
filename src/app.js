@@ -6,10 +6,24 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = () => {
-  document.querySelector("#la-excusa").innerHTML = generateExcuse();
-  console.log("Hello Rigo from the console! ");
+  document.querySelector("#btn").addEventListener("click", () => {
+    document.querySelector("#excuse").innerHTML = excuse();
+  });
 };
+let excuse = () => {
+  let who = ["El perro", "Mi abuela", "Su tortuga", "Mi pájaro"];
+  let what = ["comió", "Orinó", "Aplastó", "Rompió"];
+  let when = [
+    "before the class",
+    "right in time",
+    "when I finished",
+    "during my lunch",
+    "while I was praying"
+  ];
 
-let generateExcuse = () => {
-  return "Mi perro se comió mi tarea";
+  let whoIndex = Math.floor(Math.random() * who.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+  let whenIndex = Math.floor(Math.random() * when.length);
+
+  return who[whoIndex] + " " + what[whatIndex] + " " + when[whenIndex];
 };
